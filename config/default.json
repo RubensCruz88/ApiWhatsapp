@@ -1,0 +1,9 @@
+{
+	"api": {
+		"porta": 3000,
+		"codigoPais": "55"
+	},
+	"whatsApp": {
+		"nomeSessao": "monitoramento"
+	}
+}
