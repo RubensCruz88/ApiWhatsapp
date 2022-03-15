@@ -26,13 +26,19 @@ venom
 
 
 function start(client) {
-	// const roteador = require('./api/rotas/envio');
+	const roteador = require('./api/rotas/envio');
 
 	app.use(bodyParser.json());
 
+	//adicionamos o objeto client na requisição
+	app.use( (req, res, next) => {
+		req.client = client;
+		next();
+	})
+
 	app.listen(config.get('api.porta'), () => console.log('A Api está funcionando'));
 
-	// app.use('/api/envio',roteador);
+	app.use('/api/envio',roteador);
 
 	app.post('/mensagem',(req, res) => {
 		const body = req.body;
@@ -45,12 +51,7 @@ function start(client) {
 			return
 		}
 	
-		client
-			.sendText(config.get('api.codigoPais') + body.telefone + '@c.us', body.mensagem)
-			.then((result) => { res.send('Mensagem enviada com sucesso')})
-			.catch((erro) => { res.status(erro.status).send(erro.text) })
-
-		});
+	});
 
 	// In case of being logged out of whatsapp web
 	// Force it to keep the current session

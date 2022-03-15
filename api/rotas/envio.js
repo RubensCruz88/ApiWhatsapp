@@ -11,12 +11,11 @@ roteador.use('/',(req, res) => {
 		return
 	}
 
-	client
+	req.client
 	.sendText('55' + body.telefone + '@c.us', body.mensagem)
-	.then((result) => { console.log('localização enviada com sucesso')})
-	.catch((erro) => { console.error('Error when sending: ', erro) })
+	.then((result) => { res.send('Mensagem enviada com sucesso')})
+	.catch((erro) => { res.status(erro.status).send(erro.text) })
 
-	res.send('Mensagem enviada com sucesso');
 })
 
 module.exports = roteador;
