@@ -1,7 +1,8 @@
 {
 	"api": {
 		"porta": 3000,
-		"codigoPais": "55"
+		"codigoPais": "55",
+		"imagemQrCode": "qrCode"
 	},
 	"whatsApp": {
 		"nomeSessao": "monitoramento"
