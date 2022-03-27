@@ -6,5 +6,10 @@
 	},
 	"whatsApp": {
 		"nomeSessao": "monitoramento"
+	},
+	"servico": {
+		"nome": ".3000_REST_Whatsapp",
+		"descricao": "Serviço REST para envio de mensagens via whatsapp",
+		"arquivo": "index.js"
 	}
 }

@@ -57,6 +57,8 @@ function start(client) {
 		next();
 	})
 
+	app.get('/', (req, res) => res.send('Serviço REST está disponível'));
+
 	app.listen(config.get('api.porta'), () => console.log('A Api está funcionando'));
 
 	app.use('/api/envio',roteador);
